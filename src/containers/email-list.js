@@ -4,14 +4,12 @@ import { connect } from 'react-redux';
 import { previewEmail, selectMail } from '../actions/index';
 import { bindActionCreators } from 'redux';
 
-import EmailListItem from '../components/email-list-item';
+import EmailListItem from './email-list-item'
 
 class EmailList extends Component {
 
     renderList() {
         return this.props.mails.map((mail) => {
-            // console.log(this.props.previewEmail(mail));
-            // console.log(this.props);
             let inputClass = ((mail.id > 2) ? "name readed" : "name" );
             return (
                 <EmailListItem 
@@ -42,6 +40,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
+    //importa as funções que estão em '/actions'.
     return bindActionCreators({
         previewEmail: previewEmail,
         selectMail: selectMail

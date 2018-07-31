@@ -7,12 +7,19 @@ export function previewEmail(mail) {
 
 
 export function selectMail(mail, event) {
-    // console.log(mail);
-    // console.log(event.target.checked);
-    return {
-        type: 'MAIL_SELECTED',
-        target: event.target,
-        isChecked: event.target.checked,
-        payload: mail
+    if (event.target.checked) {
+        return {
+            type: 'MAIL_SELECTED',
+            target: event.target,
+            isChecked: event.target.checked,
+            payload: mail
+        }
+    } else {
+        return {
+            type: 'MAIL_UNSELECTED',
+            target: event.target,
+            isChecked: event.target.checked,
+            payload: mail
+        }
     }
 }

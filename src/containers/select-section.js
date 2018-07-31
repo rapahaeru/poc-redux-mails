@@ -4,35 +4,7 @@ import { connect } from 'react-redux';
 
 class SelectSection extends Component {
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			counter: 0
-		}
-
-		this.updateCounter(this.props.checkedMails);
-	}
-
-	updateCounter(mailChecked) {
-		console.log(mailChecked);
-		if(mailChecked) {
-			let counter = this.state.counter;
-
-			if(mailChecked.isChecked === true) {
-				console.log('entrou');
-				counter++;
-			} else {
-				counter--;
-			}
-			this.setState({
-				counter: counter
-			})
-		}
-	}
-
-
     render() {
-		console.log(this.props.checkedMails);
         return(
 			<div className="manager">
 				<label>
@@ -46,7 +18,7 @@ class SelectSection extends Component {
 					</select>
 				</label>
 				<span className="choices-not-readeds">loading</span>
-				<span className="number-selecteds">({this.state.counter}) selecionados</span>
+				<span className="number-selecteds">({this.props.checkedMails.counter}) selecionados</span>
 			</div>
         );
     }

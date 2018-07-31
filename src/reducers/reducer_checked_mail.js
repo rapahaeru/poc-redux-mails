@@ -1,10 +1,20 @@
-export default function(state = null, action) {
-    // console.log(state);
-    // console.log(action);
+const initialStateCounter = {
+    counter: 0
+};
+
+export default function(state = initialStateCounter, action) {
+
     switch(action.type) {
         case 'MAIL_SELECTED':
-            return action;
-    }
+            return {
+                counter: state.counter + 1
+            };
+        case 'MAIL_UNSELECTED':
+            return {
+                counter: state.counter - 1
+            };
 
-    return state;
+        default:
+            return state;
+    }
 }
