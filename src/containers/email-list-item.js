@@ -1,7 +1,13 @@
 import React, { Component } from 'react';
 
 class EmailListItem extends Component {
+
+    constructor(props) {
+        super(props);
+    }
+
     render() {
+        console.log("props: ", this.props);
         return (
             <li key={this.props.id} className={this.props.inputClassName}>
                 <input type="checkbox" onChange={this.props.actionChange} className={this.props.name} /> <span>{this.props.name} <small>recebido em: <time className="date" dateTime={this.props.dateDelivery}>{this.props.dateDeliveryFormated}</time></small></span>
